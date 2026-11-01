@@ -46,10 +46,10 @@ uk.append(row(entity="Keyword", op="Create", cid=V, agid="violin", state="enable
 
 # 2) 英国广告手动
 M, MAG = "229047174948599", "183914124760252"
-uk.append(row(entity="Ad Group", op="Update", cid=M, agid="40634066844513", state="paused"))   # 主词violin
-uk.append(row(entity="Ad Group", op="Update", cid=M, agid="59743358080140", state="paused"))   # UK_单数控价
+uk.append(row(entity="Ad Group", op="Update", cid=M, agid="40634066844513", agname="主词violin", state="paused", agbid=0.60))   # 主词violin
+uk.append(row(entity="Ad Group", op="Update", cid=M, agid="59743358080140", agname="UK_单数控价", state="paused", agbid=0.50))   # UK_单数控价
 for kid, kw, bid, st in [("83813070560166","violin starter kit",0.95,"enabled"),
-                         ("266106025908088","beginner violin",None,"paused"),
+                         ("266106025908088","beginner violin",0.77,"paused"),
                          ("144234842447683","full size violin for beginners",0.80,"enabled"),
                          ("92369341821610","beginner violin set",0.80,"enabled")]:
     uk.append(row(entity="Keyword", op="Update", cid=M, agid=MAG, kwid=kid, state=st, bid=bid, kw=kw, mt="exact"))
