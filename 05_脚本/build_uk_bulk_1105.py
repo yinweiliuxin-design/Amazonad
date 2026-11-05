@@ -48,6 +48,9 @@ for t in ["left handed", "childrens", "forenza", "phoenix"]:
 # 3) 英国广告手动：full size violin 两周 33 次点击 1 单，ACOS 47%
 M, MAG = "229047174948599", "183914124760252"
 uk.append(row(entity="Keyword", op="Update", cid=M, agid=MAG, kwid="156138128538792", state="enabled", bid=0.68, kw="full size violin", mt="exact"))
+
+# 4) SP-UK-商品投放：搜索词 b07vry3d33 两周 20 次点击 0 单（达到 15 次点击 0 单的规则），暂停这个目标，出价保留 0.35
+uk.append(row(entity="Product Targeting", op="Update", cid="250033464216246", agid="96921562714739", ptid="107248139457563", state="paused", bid=0.35, pte='asin="B07VRY3D33"'))
 TEXT_COLS = {"Campaign ID","Ad Group ID","Ad ID","Keyword ID","Product Targeting ID","Start Date","End Date","SKU"}
 def save(rows, path):
     wb = openpyxl.Workbook(); ws = wb.active; ws.title = "Sponsored Products Campaigns"
@@ -72,6 +75,6 @@ def save(rows, path):
 
 
 out = "./"
-n = save(uk, out + "VELLEN_UK_SP_批量上传_1105.xlsx")
+n = save(uk, out + "VELLEN_UK_SP_批量上传_1105_v2.xlsx")
 import collections
 print("rows", n, collections.Counter((r["Entity"], r["Operation"]) for r in uk))
