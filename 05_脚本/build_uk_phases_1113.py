@@ -68,11 +68,11 @@ A_sd = [sd_aud(SD_SIM, SIM, 0.35, "paused")]
 files["1_1113_现在上传"] = (A_sp, [], A_sd)
 # 基准（A 之后）与各阶段
 base = dict(violin=0.45, vtos=50, atos=120, close=0.60, loose=0.32, subs=0.29, fsv=0.58, beg=0.60, vfs=0.45, vfb=0.40, vsk=0.95, drf=0.52, sbbid=0.80)
-bf   = dict(base, vtos=80, close=0.69, fsv=0.67, drf=0.60, sbbid=0.92)
+bf   = dict(base, close=0.69, fsv=0.67, drf=0.60, sbbid=0.92)
 cut  = {k: (v if k in ("vtos", "atos") else round(v*0.7 + 1e-9, 2)) for k, v in base.items()}
-files["2_1120_黑五周_有优惠券才传"] = levels(**bf)
+files["2_黑五开始当天_有优惠券才传"] = levels(**bf)
 files["3_1202_黑五后恢复"] = levels(**base)
-files["4_1221_圣诞截单后降价"] = levels(**cut)
+files["4_圣诞送不到那天_降价"] = levels(**cut)
 files["5_1226_节礼日恢复"] = levels(**base)
 
 def write(name, sp_rows, sb_rows, sd_rows):
